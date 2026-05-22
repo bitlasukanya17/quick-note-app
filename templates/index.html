@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quick Note Application</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🐾 Quick Note Application</h1>
+
+    <p class="subtitle">
+        Save your important notes beautifully
+    </p>
+
+    <div class="main-box">
+
+        <div class="left">
+
+            <form action="/add" method="POST">
+
+                <textarea
+                    name="note"
+                    placeholder="Write your cute note here..."
+                    required></textarea>
+
+                <button type="submit">
+                    Save Note
+                </button>
+
+            </form>
+
+            <img
+            src="https://images.unsplash.com/photo-1517849845537-4d257902454a"
+            class="pet-image">
+
+        </div>
+
+        <div class="right">
+
+            <h2>📒 Saved Notes</h2>
+
+            {% for note in notes %}
+
+            <div class="note-card">
+                🐶 {{ note[1] }}
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
